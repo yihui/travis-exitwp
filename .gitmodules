@@ -1,0 +1,3 @@
+[submodule "exitwp"]
+	path = exitwp
+	url = https://github.com/thomasf/exitwp.git
