@@ -5,7 +5,7 @@ sudo: false
 dist: trusty
 addons:
   apt:
-    package:
+    packages:
       - libxml2-utils
 
 install:
