@@ -3,6 +3,10 @@ cache: pip
 
 sudo: false
 dist: trusty
+addons:
+  apt:
+    package:
+      - libxml2-utils
 
 install:
   - cd exitwp
