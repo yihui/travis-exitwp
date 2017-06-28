@@ -13,9 +13,4 @@ install:
   - pip install --upgrade -r pip_requirements.txt
 
 script:
-  - ls ../*.xml || exit 0
-  - cp ../*.xml wordpress-xml/
-  - xmllint --noout wordpress-xml/*.xml
-  - python exitwp.py
-  - zip -r build build
-  - curl -F "file=@build.zip" https://file.io
+  - ./build.sh
