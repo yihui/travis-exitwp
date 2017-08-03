@@ -31,6 +31,6 @@ This is a "cloud" version of [Exitwp](https://github.com/thomasf/exitwp). It is 
     The command "../build.sh" exited with 0.
     ```
     
-    Open the `file.io` link and download the zip archive. It contains the Markdown files converted from your WordPress posts. **Note** you only have one chance to download it (once downloaded, it will be deleted permanently). Read the **blogdown** book to know how to proceed to Hugo: https://bookdown.org/yihui/blogdown/from-jekyll.html.
+    Open the `https://file.io/xxxxxx` link to download the zip archive. It contains the Markdown files converted from your WordPress posts. **Note** you only have one chance to download it (once downloaded, it will be deleted permanently). Read the **blogdown** book to know how to proceed to Hugo: https://bookdown.org/yihui/blogdown/from-jekyll.html.
 
 Many thanks to [@thomasf](https://github.com/thomasf) for providing the Exitwp scripts. All I did was to configure Travis (`.travis.yml`) and provide the documentation here. I'd like to thank file.io, too. File uploading via a one-liner command. That is very cool.
