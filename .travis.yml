@@ -1,4 +1,4 @@
-language: pytho
+language: python
 cache: pip
 
 sudo: false
