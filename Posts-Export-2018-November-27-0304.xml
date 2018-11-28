@@ -1185,9 +1185,9 @@ The hearts (points) are now added to the plot by cycling through a for loop. Eac
 [sourcecode language="r"]
 for(i in 1:nrow(nels)){
     p &lt;- p + annotation_custom(
-      rasterGrob(get(nels$Heart[i])), 
+      rasterGrob(get(nels$Heart[i])),
       xmin = nels$Homework[i] - 0.5, xmax = nels$Homework[i] + 0.5, ymin = nels$Math[i] - 0.5, ymax = nels$Math[i] + 0.5
-      ) 
+      )
     }
 [/sourcecode]]]></Content>
 	</post>
@@ -1988,21 +1988,21 @@ More information about the existing curriculum guidelines as well as a survey ca
 	<li>I updated my OS to 10.9 "Mavericks"</li>
 </ul>
 When I went to use R things were going fine until I mistyped a command. Rather than giving some sort of syntax error, R responded with,
-<pre>&gt; *** caught segfault *** 
-&gt; address 0x7c0, cause 'memory not mapped' 
-&gt; 
-&gt; Possible actions: 
-&gt; 1: abort (with core dump, if enabled) 
-&gt; 2: normal R exit 
-&gt; 3: exit R without saving workspace 
-&gt; 4: exit R saving workspace 
+<pre>&gt; *** caught segfault ***
+&gt; address 0x7c0, cause 'memory not mapped'
+&gt;
+&gt; Possible actions:
+&gt; 1: abort (with core dump, if enabled)
+&gt; 2: normal R exit
+&gt; 3: exit R without saving workspace
+&gt; 4: exit R saving workspace
 &gt; Selection:</pre>
 Unlike most of my experiences with computing, this I was able to replicate many times. After a day of panic and no luck on Google, I was finally able to find a <a href="https://groups.google.com/forum/#!topic/r-sig-mac/qKwxj2DaRgc">post on one of the Google Groups from Simon Urbanek</a> responding to someone with a similar problem. He points out that there are a couple of solutions, one of which is to wait until Apple gets things stabilized. (This is an issue since if you have ever tried to go back to a previous OS on a Mac, you will know that this might take several days of pain and swearing.)
 
 The second solution he suggests is to install the nightly build or rebuild the GUI. To install the nightly build visit the <a href="http://r.research.att.com/#nightly">R  for Mac OS X Developer's page</a>. Or, in Terminal issue the following commands,
-<pre>svn co https://svn.r-project.org/R-packages/trunk/Mac-GUI 
-cd Mac-GUI 
-xcodebuild -configuration Debug 
+<pre>svn co https://svn.r-project.org/R-packages/trunk/Mac-GUI
+cd Mac-GUI
+xcodebuild -configuration Debug
 open build/Debug/R.app</pre>
 I tried both and this worked fine...until I needed to load a package. Then I was given an error that the package couldn't be found. Now I realize that you can download the packages you need from source and compile them yourself, but I was trying to figure out how to deal with students who were in a similar situation. (This is not an option for most social science students.)
 
@@ -2089,8 +2089,8 @@ As an example consider the following sample data:
     1    James     Fred    Frank
     2    Frank     Fred    James
     3    James    James    James
-    4    Laura 
-    5    David 
+    4    Laura
+    5    David
     6    James              Fred
     7    Laura
     8    James
@@ -2101,8 +2101,8 @@ In this data, James has the most 1st choice votes (4) but it is not enough to wi
     1    James     Fred    <del>Frank</del>
     2    <del>Frank</del>     Fred    James
     3    James    James    James
-    4    Laura 
-    5    David 
+    4    Laura
+    5    David
     6    James              Fred
     7    Laura
     8    James
@@ -2113,8 +2113,8 @@ Then, the 2nd choice of any voter who voted for Frank now become the new "1st" c
     1    James     Fred
     2     Fred    James
     3    James    James    James
-    4    Laura 
-    5    David 
+    4    Laura
+    5    David
     6    James              Fred
     7    Laura
     8    James
@@ -2125,9 +2125,9 @@ James still has the most 1st choice votes, but not enough to win (he still needs
     1    James
     2    James
     3    James    James    James
-    4    Laura 
-    5    David 
-    6    James              
+    4    Laura
+    5    David
+    6    James
     7    Laura
     8    James
     9    David    Laura
@@ -2137,10 +2137,10 @@ James now has five 1st choice votes, but still not enough to win. Laura has the 
     1    James
     2    James
     3    James    James    James
-    4     
-    5    David 
-    6    James              
-    7    
+    4
+    5    David
+    6    James
+    7
     8    James
     9    David    Laura
    10    David</pre>
@@ -2740,7 +2740,7 @@ The first task is to remove any columns that do not contain any data. For this w
 <pre># load stringr
 library(stringr)
 
-# useless columns created by sakai to be removed 
+# useless columns created by sakai to be removed
 comment_columns = which(str_detect(names(d), "Grader.s.comments"))
 columns_to_remove = c(1, 2, comment_columns)
 
@@ -3096,29 +3096,29 @@ I think it will be helpful to talk about these questions informally, on the firs
 		<Title><![CDATA[TIL what happens if you use %>% instead of + in ggplot2]]></Title>
 		<Content><![CDATA[This post is about <code>ggplot2</code> and <code>dplyr</code> packages, so let's start with loading them:
 
-[sourcecode language="r"] 
-library(ggplot2) 
-library(dplyr) 
+[sourcecode language="r"]
+library(ggplot2)
+library(dplyr)
 [/sourcecode]
 
 I can't be the first person to make the following mistake:
 
-[sourcecode language="r"] 
+[sourcecode language="r"]
 ggplot(mtcars, aes(x = wt, y = mpg)) %&gt;%
-    geom_point() 
+    geom_point()
 [/sourcecode]
 
 Can you spot the mistake in the code above? Look closely at the end of the first line.
 
 The operator should be the <code>+</code> used in <code>ggplot2</code> for layering, not the <code>%&gt;%</code> operator used in <code>dplyr</code> for piping, like this:
 
-[sourcecode language="r"] 
+[sourcecode language="r"]
 ggplot(mtcars, aes(x = wt, y = mpg)) +
-    geom_point() 
+    geom_point()
 [/sourcecode]
 
 So what happens if you accidentally use the pipe operator instead of the <code>+</code>? You get the following error:
-<pre>Error in get(x, envir = this, inherits = inh)(this, ...) : 
+<pre>Error in get(x, envir = this, inherits = inh)(this, ...) :
  Mapping should be a list of unevaluated mappings created by aes or aes_string</pre>
 My Google search for this error did not yield my careless mistake as a potential cause. Since many people use these two packages together, I'm guessing such mix-up of operators can't be too uncommon (right? I can't be the only one...). So I'm leaving this post here for the next person who makes the same mistake.
 
@@ -3144,7 +3144,7 @@ I have successfully used this to add RSS feeds from many sites and journals to m
 	<post>
 		<id>974</id>
 		<Title>The African Data Initiative</Title>
-		<Content><![CDATA[Are you looking for a way to celebrate <a href="https://worldstatisticsday.org">World Statistics Day</a>? I know you are. And I can't think of a better way than supporting the <a href="https://chuffed.org/project/africandatainitiative">African Data Initiative</a> (ADI).
+		<Content><![CDATA[Are you looking for a way to celebrate <a href="https://worldstatisticsday.org">World Statistics Day</a>? I know you are. And I can't think of a better way than supporting the <a href="https://chuffed.org/project/africandatainitiative">African Data Initiative</a> (ADI).
 
 I'm proud to have met some of the statisticians, statisticis educators and researchers who are leading this initative at an <a href="http://iase-web.org/conference/roundtable12/">International Association of Statistics Educators Roundtable workshop in Cebu, The Phillipines, in 2012</a>. You can read about Roger and David's Stern's projects in Kenya <a href="http://escholarship.org/uc/search?entity=uclastat_cts_tise;volume=7;issue=2">here</a> in the journal Technology Innovations in Statistics Education. This group -- represented at the workshop by father-and-son Roger and David, and at-the-time grad students Zacharaiah Mbasu and James Musyoka -- impressed me with their determination to improve international statistical literacy and  with their successful and creative pragmatic implementations to adjust to the needs of the local situations in Kenya.
 
@@ -3178,7 +3178,7 @@ plotData = data.frame(
 library(ggplot2)
 
 p = ggplot(data = plotData, aes(x = .fitted, y = .stdresid)) +
-    theme_bw() + 
+    theme_bw() +
     geom_hline(yintercept = 0) +
     geom_point(size = 0) +
     theme_bw() +
@@ -3205,14 +3205,14 @@ The idea is that since we have saved our plot in the object <code>p</code>, we c
 
 [code language="r"]
 for(i in 1:nrow(plotData)){
-    p = p + 
+    p = p +
       annotation_custom(
         our_image,
-        xmin = minimum_x_value_for_the_image, 
-        xmax = maximum_x_value_for_the_image, 
-        ymin = minimum_y_value_for_the_image, 
+        xmin = minimum_x_value_for_the_image,
+        xmax = maximum_x_value_for_the_image,
+        ymin = minimum_y_value_for_the_image,
         ymax = maximum_y_value_for_the_image
-        ) 
+        )
     }
 [/code]
 
@@ -3228,9 +3228,9 @@ library(grid)
 for(i in 1:nrow(plotData)){
     p = p + annotation_custom(
       rasterGrob(ghost),
-      xmin = plotData$.fitted[i]-0.2, xmax = plotData$.fitted[i]+0.2, 
+      xmin = plotData$.fitted[i]-0.2, xmax = plotData$.fitted[i]+0.2,
       ymin = plotData$.stdresid[i]-0.2, ymax = plotData$.stdresid[i]+0.2
-      ) 
+      )
     }
 [/code]
 
@@ -3391,10 +3391,10 @@ library(grid)
 for(i in 1:nrow(plotData)){
   p = p + annotation_custom(
     rasterGrob(eval(parse(text = plotData$icon[i]))),
-    xmin = plotData$year[i] - 20, xmax = plotData$year[i] + 20, 
+    xmin = plotData$year[i] - 20, xmax = plotData$year[i] + 20,
     ymin = plotData$yield[i] - 20, ymax = plotData$yield[i] + 20
   )
-} 
+}
 
 # Show plot
 print(p)
@@ -3430,7 +3430,7 @@ p2 = ggplot(data = plotData, aes(x = year, y = yield)) +
 for(i in 1:nrow(plotData)){
   p2 = p2 + annotation_custom(
     rasterGrob(eval(parse(text = as.character(plotData$crop[i])))),
-    xmin = plotData$year[i] - 20, xmax = plotData$year[i] + 20, 
+    xmin = plotData$year[i] - 20, xmax = plotData$year[i] + 20,
     ymin = plotData$yield[i] -20, ymax = plotData$yield[i]+20
   )
 }
@@ -3461,7 +3461,7 @@ Why might this be of interest to you?
 	<li style="font-weight: inherit;">The raw dataset has a feature I love -- it's been damaged due (most likely) to being opened in Excel! One of the variables in the dataset is age group of the biker (<code>BikeAge_gr</code>). Here is the age distribution of bikers as they appear in the original data:</li>
 </ul>
 
-[sourcecode language="r"] 
+[sourcecode language="r"]
 ##    BikeAge_Gr crash_count
 ##    (chr)      (int)
 ## 1  0-5        60
