@@ -10,7 +10,9 @@ jobs:
   convert-xml:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
 
       - run: |
           sudo apt install -y libxml2-utils
