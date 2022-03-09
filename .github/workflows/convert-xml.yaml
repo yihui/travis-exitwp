@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - run: |
-          apt install libxml2-utils
+          sudo apt install -y libxml2-utils
           cd exitwp
           pip install --upgrade -r pip_requirements.txt
           ../build.sh
