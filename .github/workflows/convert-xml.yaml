@@ -1,0 +1,19 @@
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: convert-xml
+
+jobs:
+  convert-xml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: |
+          apt install libxml2-utils
+          cd exitwp
+          pip install --upgrade -r pip_requirements.txt
+          ../build.sh
