@@ -11,11 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: true
 
       - run: |
+          git clone --depth=1 https://github.com/omajid/exitwp-for-hugo.git
           sudo apt -qq -y install libxml2-utils > /dev/null
-          cd exitwp
+          cd exitwp-for-hugo
           pip install --upgrade -r pip_requirements.txt
           ../build.sh
