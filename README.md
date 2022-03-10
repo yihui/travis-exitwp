@@ -1,4 +1,4 @@
-# Travis Exitwp
+# Run Exitwp on Github Actions
 
 This is a "cloud" version of [Exitwp](https://github.com/omajid/exitwp-for-hugo). It is provided to those who do not know how to run Python scripts (or do not bother to run the script locally). Basically you upload a WordPress XML file and you will get a download link to a zip file of your posts/pages in Markdown.
 
