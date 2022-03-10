@@ -18,8 +18,9 @@ jobs:
           sudo apt -qq -y install libxml2-utils > /dev/null
           cd exitwp-for-hugo
           pip install --upgrade -r pip_requirements.txt
-
-      - name: "Convert XML"
-        run: |
-          cd exitwp-for-hugo
           ../build.sh
+
+      - name: "Zip files"
+        run: |
+          [ -f build.zip ] || exit 0
+          curl -F "file=@build.zip" https://file.io

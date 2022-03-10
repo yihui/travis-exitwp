@@ -14,21 +14,11 @@ This is a "cloud" version of [Exitwp](https://github.com/omajid/exitwp-for-hugo)
 
     ![PR](https://user-images.githubusercontent.com/163582/27658949-69246f7e-5c17-11e7-9c37-f3207d3ba168.png)
 
-    If the build was successful, you should see the last few lines of the log like this:
+    If the build was successful, you should see the log of the step "Zip files" like this:
 
     ```bash
-    zip -r build build
-      adding: build/ (stored 0%)
-      adding: build/jekyll/ (stored 0%)
-      adding: build/jekyll/example.com/ (stored 0%)
-      adding: build/jekyll/example.com/about/ (stored 0%)
-      adding: build/jekyll/example.com/about/index.markdown (deflated 36%)
-      adding: build/jekyll/example.com/_posts/ (stored 0%)
-      adding: build/jekyll/example.com/_posts/2007-07-13-a-sample-post.markdown (deflated 27%)
     curl -F "file=@build.zip" https://file.io
     {"success":true,"key":"4z2Ajm","link":"https://file.io/4z2Ajm","expiry":"14 days"}
-    
-    The command "../build.sh" exited with 0.
     ```
     
     Open the `https://file.io/xxxxxx` link to download the zip archive. It contains the Markdown files converted from your WordPress posts. **Note** you only have one chance to download it (once downloaded, it will be deleted permanently). Read the **blogdown** book to know how to proceed to Hugo: https://bookdown.org/yihui/blogdown/from-jekyll.html.
