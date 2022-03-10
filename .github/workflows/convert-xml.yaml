@@ -20,4 +20,6 @@ jobs:
           pip install --upgrade -r pip_requirements.txt
 
       - name: "Convert XML"
-        run: ../build.sh
+        run: |
+          cd exitwp-for-hugo
+          ../build.sh
