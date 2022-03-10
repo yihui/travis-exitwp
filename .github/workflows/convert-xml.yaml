@@ -12,9 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: |
+      - name: "Install"
+        run: |
           git clone --depth=1 https://github.com/omajid/exitwp-for-hugo.git
           sudo apt -qq -y install libxml2-utils > /dev/null
           cd exitwp-for-hugo
           pip install --upgrade -r pip_requirements.txt
-          ../build.sh
+
+      - name: "Convert XML"
+        run: ../build.sh
